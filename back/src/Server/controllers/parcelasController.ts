@@ -8,7 +8,7 @@ const parcelasController = {
 		const query = "SELECT * FROM parcelas";
 
 		try {
-			const [rows, fields] = await queryDatabase(query);
+			const rows = await queryDatabase(query);
 			// Verificar se tem Parcela cadastrada
 			if (rows === null || rows === undefined) {
 				return res.status(404).json({ error: "Nenhuma Parcela cadastrada" });
@@ -47,7 +47,7 @@ const parcelasController = {
 		const query = "SELECT * FROM parcelas WHERE os_id = ?";
 
 		try {
-			const [rows] = await queryDatabase(query, [os_id]);
+			const rows = await queryDatabase(query, [os_id]);
 
 			// Verificar se a parcelas foi encontrada
 			if (rows === null || rows === undefined) {

@@ -9,7 +9,7 @@ const usersController = {
         const query = "SELECT * FROM usuarios";
 
         try {
-            const [ rows ] = await queryDatabase(query);
+            const rows  = await queryDatabase(query);
             // Verificar se tem serviço cadastrado
             if (rows === null || rows === undefined) {
                 return res.status(404).json({ error: "Nenhum usuário cadastrado" });

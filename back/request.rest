@@ -15,7 +15,7 @@ Content-Type: application/json
   "nome": "Doria",
   "telefone": "(99) 991745323",
   "endereco": "Rua dr jose maria whitaker",
-  "email": "medico2@gmail.com",
+  "email": "paciente@gmail.com",
   "senha": "giovana0407",
   "status":"Ativo"
 }
@@ -60,8 +60,8 @@ POST http://localhost:3048/api/servicos/create
 Content-Type: application/json
 
 {
-  "nome": "Consulta",
-  "descricao": "Consulta geral",
+  "nome": "Extração de dente",
+  "descricao": "Extração de dente",
   "preco_avulso": 50,
   "preco_convenio": 50,
   "status": "ativo"
@@ -138,7 +138,7 @@ POST http://localhost:3048/api/os/get
 Content-Type: application/json
 
 {
-  "id": 1
+  "id": 4
 }
 
 ### DELETAR UMA OS POR ID
@@ -152,8 +152,7 @@ Content-Type: application/json
 
 ### PARCELAS
 
-### BUSCAR TODOS OS USUARIOS
-
+### BUSCAR TODAS AS PARCELAS
 GET http://localhost:3048/api/parcelas/all
 
 ### BUSCAR PARCELA POR ID
@@ -171,7 +170,7 @@ POST http://localhost:3048/api/parcelas/idOs
 Content-Type: application/json
 
 {
-  "os_id": 5
+  "os_id": 9
 }
 
 ### DELETAR PARCELA POR ID

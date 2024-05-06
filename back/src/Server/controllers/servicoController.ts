@@ -9,7 +9,7 @@ const servicosController = {
 		const query = "SELECT * FROM servicos";
 
 		try {
-			const [rows, fields] = await queryDatabase(query);
+			const rows = await queryDatabase(query);
 
 			// Verificar se tem serviço cadastrado
 			if (rows === null || rows === undefined) {
