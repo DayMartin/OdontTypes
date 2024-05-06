@@ -16,7 +16,8 @@ Content-Type: application/json
   "telefone": "(99) 991745323",
   "endereco": "Rua dr jose maria whitaker",
   "email": "medico2@gmail.com",
-  "senha": "giovana0407"
+  "senha": "giovana0407",
+  "status":"Ativo"
 }
 
 ### BUSCAR UM USUARIO POR ID
@@ -61,9 +62,9 @@ Content-Type: application/json
 {
   "nome": "Consulta",
   "descricao": "Consulta geral",
-  "preco": 50,
-  "quantidade": 1
-
+  "preco_avulso": 50,
+  "preco_convenio": 50,
+  "status": "ativo"
 }
 
 ### BUSCAR UM SERVIÇO POR ID
@@ -72,7 +73,7 @@ POST http://localhost:3048/api/servicos/get
 Content-Type: application/json
 
 {
-  "id": 1
+  "id": 5
 }
 
 ### DELETAR UM SERVIÇO POR ID
