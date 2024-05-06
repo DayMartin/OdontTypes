@@ -10,12 +10,12 @@ POST http://localhost:3048/api/user/create
 Content-Type: application/json
 
 {
-  "tipo": "medico",
+  "tipo": "paciente",
   "cpfcnpj": "12345678900",
   "nome": "Doria",
   "telefone": "(99) 991745323",
   "endereco": "Rua dr jose maria whitaker",
-  "email": "paciente@gmail.com",
+  "email": "paciente2@gmail.com",
   "senha": "giovana0407",
   "status":"Ativo"
 }
@@ -26,7 +26,7 @@ POST http://localhost:3048/api/user/get
 Content-Type: application/json
 
 {
-  "id": 1
+  "id": 3
 }
 
 ### BUSCAR UM USUARIO POR TIPO
@@ -73,7 +73,7 @@ POST http://localhost:3048/api/servicos/get
 Content-Type: application/json
 
 {
-  "id": 5
+  "id": 2
 }
 
 ### DELETAR UM SERVIÇO POR ID
@@ -138,7 +138,7 @@ POST http://localhost:3048/api/os/get
 Content-Type: application/json
 
 {
-  "id": 4
+  "id": 7
 }
 
 ### DELETAR UMA OS POR ID
@@ -161,7 +161,7 @@ POST http://localhost:3048/api/parcelas/id
 Content-Type: application/json
 
 {
-  "id": 1
+  "id": 4
 }
 
 ### BUSCAR PARCELA POR ID DA OS
