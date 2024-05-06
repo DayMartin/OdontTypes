@@ -5,14 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-	"build": "tsc",
-	"start": "yarn build && node dist/src/index.js",
+    "build": "tsc",
+    "start": "yarn build && node dist/src/index.js",
     "dev": "ts-node-dev ./src/index.ts"
   },
   "author": "Dinah Martins",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2"
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.9.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.1.1",

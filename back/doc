@@ -1,0 +1,17 @@
+npm init 
+
+# installs NVM (Node Version Manager)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+# download and install Node.js
+nvm install 20
+
+yarn add express
+yarn add -D typescript @types/express @types/typescript ts-node-dev
+npx tsc --init
+npm install -g yarn
+npx eslint --init
+yarn add globals @eslint/js typescript-eslint eslint --dev
+yarn add -D @types/module-alias
+yarn add dotenv
+yarn add mysql2
+
