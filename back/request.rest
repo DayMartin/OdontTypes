@@ -98,10 +98,10 @@ POST http://localhost:3048/api/os/create
 Content-Type: application/json
 
 {
-  "servico_id": 6,
-  "cliente_id": 7,
-  "funcionario_id": 8,
-  "convenio_id": 8,
+  "servico_id": 1,
+  "cliente_id": 2,
+  "funcionario_id": 2,
+  "convenio_id": 2,
   "QTparcelas": 4,
   "valorServico": 48,
   "valorDesconto": 48,
@@ -138,7 +138,7 @@ POST http://localhost:3048/api/os/get
 Content-Type: application/json
 
 {
-  "id": 3
+  "id": 1
 }
 
 ### DELETAR UMA OS POR ID
