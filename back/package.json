@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "start": "yarn build && dist/src/index.js",
+    "start": "yarn build && node dist/index.js",
     "dev": "ts-node-dev ./src/index.ts"
   },
   "author": "Dinah Martins",
