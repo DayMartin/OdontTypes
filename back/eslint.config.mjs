@@ -39,6 +39,6 @@ export default [
         "always"
       ],
       "@typescript-eslint/no-empty-interface": "off"
-    }
+    },
   }  
 ];

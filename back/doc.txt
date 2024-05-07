@@ -14,6 +14,8 @@ yarn add globals @eslint/js typescript-eslint eslint --dev
 yarn add -D @types/module-alias
 yarn add dotenv
 yarn add mysql2
+yarn add -D jest ts-jest @types/jest
+npm install @types/jest -force
 yarn add jest ts-jest @types/jest
 yarn jest --init
 yarn add -D supertest @types/supertest

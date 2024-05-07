@@ -1,6 +1,5 @@
 import mysql, {ResultSetHeader} from 'mysql2';
 import databaseConfig from "../../config";
-import { CreateTables } from './conn';
 
 const queryDatabase = async (sql: string, values?: any[]) => {
 
