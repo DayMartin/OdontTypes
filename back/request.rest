@@ -10,12 +10,12 @@ POST http://localhost:3048/api/user/create
 Content-Type: application/json
 
 {
-  "tipo": "paciente",
+  "tipo": "fornecedor",
   "cpfcnpj": "12345678900",
   "nome": "Doria",
   "telefone": "(99) 991745323",
   "endereco": "Rua dr jose maria whitaker",
-  "email": "paciente2@gmail.com",
+  "email": "fornecedor@gmail.com",
   "senha": "giovana0407",
   "status":"Ativo"
 }
@@ -35,7 +35,7 @@ POST http://localhost:3048/api/user/getAlltipo
 Content-Type: application/json
 
 {
-  "tipo": "paciente"
+  "tipo": "fornecedor"
 }
 
 ### DELETAR UM USUARIO POR ID
@@ -180,4 +180,136 @@ Content-Type: application/json
 
 {
   "id": 1
+}
+
+### ESTOQUE
+
+### BUSCAR TODOS AS ESTOQUE
+GET http://localhost:3048/api/estoque/all
+
+### CADASTRAR NOVO ESTOQUE
+
+POST http://localhost:3048/api/estoque/create
+Content-Type: application/json
+
+{
+  "nome": "Espátula",
+  "quantidade": 2,
+  "fornecedor_id": 9,
+  "categoria_id": 2
+}
+
+### BUSCAR ESTOQUE POR ID
+
+POST http://localhost:3048/api/estoque/get
+Content-Type: application/json
+
+{
+  "id": 1
+}
+
+### BUSCAR ESTOQUE POR ID DA CATEGORIA
+
+POST http://localhost:3048/api/estoque/AllCategoria
+Content-Type: application/json
+
+{
+  "categoria_id": 2
+}
+
+### BUSCAR ESTOQUE POR ID DO FORNECEDOR
+
+POST http://localhost:3048/api/estoque/AllFornecedor
+Content-Type: application/json
+
+{
+  "fornecedor_id": 9
+}
+
+### DELETAR ESTOQUE POR ID
+
+DELETE http://localhost:3048/api/estoque/delete
+Content-Type: application/json
+
+{
+  "id": 1
+}
+
+### CATEGORIA
+
+### BUSCAR TODOS AS CATEGORIA
+GET http://localhost:3048/api/categoria/all
+
+### CADASTRAR NOVO OS
+
+POST http://localhost:3048/api/categoria/create
+Content-Type: application/json
+
+{
+  "nome": "Materias"
+}
+
+### BUSCAR CATEGORIA POR ID
+
+POST http://localhost:3048/api/categoria/get
+Content-Type: application/json
+
+{
+  "id": 1
+}
+
+
+### DELETAR CATEGORIA POR ID
+
+DELETE http://localhost:3048/api/categoria/delete
+Content-Type: application/json
+
+{
+  "id": 1
+}
+
+
+### HISTORICO DE ESTOQUE
+
+### BUSCAR TODOS OS HISTORICOS DE ESTOQUE
+GET http://localhost:3048/api/historic/all
+
+### CADASTRAR NOVO HISTORICO DE ESTOQUE
+
+POST http://localhost:3048/api/historic/create
+Content-Type: application/json
+
+{
+  "tipo": "Saída",
+  "quantidade": 2,
+  "estoque_id": 1
+}
+
+### BUSCAR HISTORICO DE ESTOQUE POR ID
+
+POST http://localhost:3048/api/historic/get
+Content-Type: application/json
+
+{
+  "id": 1
+}
+
+### BUSCAR HISTORICO DE ESTOQUE POR ID DE UM ESTOQUE
+
+POST http://localhost:3048/api/historic/AllEstoque
+Content-Type: application/json
+
+{
+  "estoque_id": 1
+}
+
+
+
+### DELETAR HISTORICO DE ESTOQUE POR ID
+
+DELETE http://localhost:3048/api/historic/delete
+Content-Type: application/json
+
+{
+  "id": 4
 }
