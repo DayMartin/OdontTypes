@@ -12,6 +12,9 @@ export class CreateTables{
             await this.createServicosTable();
             await this.createOsTable();
             await this.createParcelasTable();
+			await this.createCategoriaTable();
+			await this.createEstoqueTable();
+			await this.createHistoricEstoqueTable();
         } catch (error) {
             console.error("Erro ao criar as tabelas:", error);
         }
@@ -139,6 +142,80 @@ export class CreateTables{
 			// Libere a conexão
 		} catch (error) {
 			console.error("Erro ao criar a tabela 'Parcelas':", error);
+		}
+	}
+
+	async createCategoriaTable() {
+		try {
+			const consulta = `SHOW TABLES LIKE 'categoria'`;
+			// Verifique se a tabela 'Categoria' existe
+			const rows = await queryDatabase(consulta);
+	
+			// Se a tabela 'Categoria' não existir, crie-a
+			if (rows.length === 0) {
+				await queryDatabase(`
+					CREATE TABLE categoria (
+						id INT AUTO_INCREMENT PRIMARY KEY,
+						nome VARCHAR(100),
+						data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+					)
+				`);
+				console.log("Tabela 'Categoria' criada com sucesso.");
+			}
+		} catch (error) {
+			console.error("Erro ao criar a tabela 'Categoria':", error);
+		}
+	}
+
+	async createEstoqueTable() {
+		try {
+			const consulta = `SHOW TABLES LIKE 'estoque'`;
+			// Verifique se a tabela 'estoque' existe
+			const rows = await queryDatabase(consulta);
+	
+			// Se a tabela 'estoque' não existir, crie-a
+			if (rows.length === 0) {
+				await queryDatabase(`
+					CREATE TABLE estoque (
+						id INT AUTO_INCREMENT PRIMARY KEY,
+						nome VARCHAR(100),
+						quantidade INT,
+						fornecedor_id INT,
+						categoria_id INT,
+						data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+						FOREIGN KEY (fornecedor_id) REFERENCES usuarios(id),
+						FOREIGN KEY (categoria_id) REFERENCES categoria(id)
+					)
+				`);
+				console.log("Tabela 'estoque' criada com sucesso.");
+			}
+		} catch (error) {
+			console.error("Erro ao criar a tabela 'estoque':", error);
+		}
+	}
+
+	async createHistoricEstoqueTable() {
+		try {
+			const consulta = `SHOW TABLES LIKE 'estoqueHistoric'`;
+			// Verifique se a tabela 'estoqueHistoric' existe
+			const rows = await queryDatabase(consulta);
+	
+			// Se a tabela 'estoqueHistoric' não existir, crie-a
+			if (rows.length === 0) {
+				await queryDatabase(`
+					CREATE TABLE estoqueHistoric (
+						id INT AUTO_INCREMENT PRIMARY KEY,
+						tipo VARCHAR(50),
+						quantidade INT,
+						estoque_id INT,
+						data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+						FOREIGN KEY (estoque_id) REFERENCES estoque(id)
+					)
+				`);
+				console.log("Tabela 'estoqueHistoric' criada com sucesso.");
+			}
+		} catch (error) {
+			console.error("Erro ao criar a tabela 'estoqueHistoric':", error);
 		}
 	}
 }
