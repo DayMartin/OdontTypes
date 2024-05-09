@@ -20,7 +20,7 @@ import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import InventoryIcon from '@mui/icons-material/Inventory';
-
+import HomeIcon from '@mui/icons-material/Home';
 const drawerWidth = 240;
 
 const openedMixin = (theme: Theme): CSSObject => ({
@@ -169,30 +169,34 @@ export default function MenuLateral() {
           ))}
         </List>
         <Divider />
-        {/* <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+        <List>
+          {['Home'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
+                selected={selectedItem === text}
+                onClick={() => handleListItemClick(text)}
                 sx={{
                   minHeight: 48,
                   justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
+                  px: 5.5,
+                  fontSize: 'large'
+
                 }}
               >
                 <ListItemIcon
                   sx={{
                     minWidth: 0,
-                    mr: open ? 3 : 'auto',
+                    mr: open ? 6 : 'auto',
                     justifyContent: 'center',
                   }}
                 >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  {index % 2 === 0 ? <HomeIcon /> : <HomeIcon /> }
                 </ListItemIcon>
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
           ))}
-        </List> */}
+        </List>
         
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
@@ -226,6 +230,14 @@ export default function MenuLateral() {
             <Typography variant="h5">Estoque</Typography>
             <Typography paragraph>
               Conteúdo para Estoque...
+            </Typography>
+          </Box>
+        )}
+        {selectedItem === 'Home' && (
+          <Box sx={{ bgcolor: 'background.paper', p: 3 }}>
+            <Typography variant="h5">Home</Typography>
+            <Typography paragraph>
+              Conteúdo para Home...
             </Typography>
           </Box>
         )}
