@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '@mui/material/Button';
+import { Box } from '@mui/material';
 
 export const Home = () => {
   // const handleButtonClick = () => {
@@ -10,9 +11,6 @@ export const Home = () => {
   // };
 
   return (
-    
-    <div>
-      <h1> TESTE </h1>
-    </div>
+    <h1> teste </h1>
   );
 };
