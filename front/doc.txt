@@ -1,0 +1,7 @@
+npx create-react-app front
+
+yarn add @mui/material @emotion/react @emotion/styled
+yarn add @mui/icons-material
+yarn add @mui/material @mui/styled-engine-sc styled-components
+yarn add react-router-dom
+yarn add typescript --dev
