@@ -82,7 +82,86 @@ const parcelasController = {
 			console.error(error);
 			return res.status(500).json({ error: "Erro ao deletar a Parcela" });
 		}
-	} 
+	},
+
+	// Função para trazer todas as parcelas do dia
+	PagamentoDia: async (req:Request, res:Response) => {
+		const { diapagamento } = req.body;
+		const query = "SELECT * FROM parcelas WHERE dataPagamento = ?";
+
+		try {
+			const [rows] = await queryDatabase(query, [diapagamento]);
+
+			// Verificar se a Parcela foi encontrada
+			if (rows === null || rows === undefined) {
+				return res.status(404).json({ error: "Parcela não encontrado" });
+			}
+
+			// Se a Parcela foi encontrado, retornar os dados
+			return res.status(200).json(rows);
+		} catch (error) {
+			console.error(error);
+			return res.status(500).json({ error: "Erro ao buscar OS" });
+		}
+	},	
+
+    // Função para trazer o valor total recebido por mês
+	PagamentoMes: async (req: Request, res: Response) => {
+		const { mes } = req.body;
+	
+		// Extrair o mês do formato 'MM/YYYY'
+		const [month, year] = mes.split('/');
+	
+		const query = "SELECT * FROM parcelas";
+	
+		try {
+			const result = await queryDatabase(query);
+	
+			// Verificar se o resultado está vazio ou não é um array
+			if (!result || !Array.isArray(result) || result.length === 0) {
+				return res.status(404).json({ error: "Parcelas não encontradas para este mês" });
+			}
+	
+			// Filtrar as parcelas com base no mês fornecido
+			const filteredRows = result.filter(row => {
+				// Extrair o mês e o ano da coluna dataPagamento
+				const rowDate = row.dataPagamento.split('/');
+				const rowMonth = rowDate[1];
+				const rowYear = rowDate[2];
+	
+				// Comparar o mês e o ano extraídos com o mês e o ano fornecidos
+				return rowMonth === month && rowYear === year;
+			});
+	
+			// Se as parcelas foram encontradas, retornar os dados filtrados
+			return res.status(200).json(filteredRows);
+		} catch (error) {
+			console.error(error);
+			return res.status(500).json({ error: "Erro ao buscar as parcelas" });
+		}
+	},
+
+    // Função para buscar parcela por status
+	PagamentoStatus: async (req:Request, res:Response) => {
+		const { status } = req.body;
+		const query = "SELECT * FROM parcelas WHERE status = ? ";
+
+		try {
+			const rows = await queryDatabase(query, [status]);
+
+			// Verificar se a Parcela foi encontrada
+			if (rows === null || rows === undefined) {
+				return res.status(404).json({ error: "Parcela não encontrada" });
+			}
+
+			// Se a Parcela foi encontrado, retornar os dados
+			return res.status(200).json(rows);
+		} catch (error) {
+			console.error(error);
+			return res.status(500).json({ error: "Erro ao buscar OS" });
+		}
+	},	
+
 
 }
 
