@@ -1,0 +1,48 @@
+################ USUARIOS
+
+### BUSCAR TODOS OS USUARIOS
+
+GET http://localhost:3048/api/user/all
+
+### CADASTRAR NOVO USUARIO
+
+POST http://localhost:3048/api/user/create
+Content-Type: application/json
+
+{
+  "tipo": "fornecedor",
+  "cpfcnpj": "12345678900",
+  "nome": "Doria",
+  "telefone": "(99) 991745323",
+  "endereco": "Rua dr jose maria whitaker",
+  "email": "fornecedor@gmail.com",
+  "senha": "giovana0407",
+  "status":"Ativo"
+}
+
+### BUSCAR UM USUARIO POR ID
+
+POST http://localhost:3048/api/user/get
+Content-Type: application/json
+
+{
+  "id": 3
+}
+
+### BUSCAR UM USUARIO POR TIPO
+
+POST http://localhost:3048/api/user/getAlltipo
+Content-Type: application/json
+
+{
+  "tipo": "fornecedor"
+}
+
+### DELETAR UM USUARIO POR ID
+
+DELETE http://localhost:3048/api/user/delete
+Content-Type: application/json
+
+{
+  "id": 1
+}

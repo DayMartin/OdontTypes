@@ -1,0 +1,44 @@
+### HISTORICO DE ESTOQUE
+
+### BUSCAR TODOS OS HISTORICOS DE ESTOQUE
+GET http://localhost:3048/api/historic/all
+
+### CADASTRAR NOVO HISTORICO DE ESTOQUE
+
+POST http://localhost:3048/api/historic/create
+Content-Type: application/json
+
+{
+  "tipo": "Saída",
+  "quantidade": 2,
+  "estoque_id": 1
+}
+
+### BUSCAR HISTORICO DE ESTOQUE POR ID
+
+POST http://localhost:3048/api/historic/get
+Content-Type: application/json
+
+{
+  "id": 1
+}
+
+### BUSCAR HISTORICO DE ESTOQUE POR ID DE UM ESTOQUE
+
+POST http://localhost:3048/api/historic/AllEstoque
+Content-Type: application/json
+
+{
+  "estoque_id": 1
+}
+
+
+
+### DELETAR HISTORICO DE ESTOQUE POR ID
+
+DELETE http://localhost:3048/api/historic/delete
+Content-Type: application/json
+
+{
+  "id": 4
+}

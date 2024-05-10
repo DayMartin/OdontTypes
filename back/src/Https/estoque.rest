@@ -1,0 +1,52 @@
+### ESTOQUE
+
+### BUSCAR TODOS AS ESTOQUE
+GET http://localhost:3048/api/estoque/all
+
+### CADASTRAR NOVO ESTOQUE
+
+POST http://localhost:3048/api/estoque/create
+Content-Type: application/json
+
+{
+  "nome": "Espátula",
+  "quantidade": 2,
+  "fornecedor_id": 9,
+  "categoria_id": 2
+}
+
+### BUSCAR ESTOQUE POR ID
+
+POST http://localhost:3048/api/estoque/get
+Content-Type: application/json
+
+{
+  "id": 1
+}
+
+### BUSCAR ESTOQUE POR ID DA CATEGORIA
+
+POST http://localhost:3048/api/estoque/AllCategoria
+Content-Type: application/json
+
+{
+  "categoria_id": 2
+}
+
+### BUSCAR ESTOQUE POR ID DO FORNECEDOR
+
+POST http://localhost:3048/api/estoque/AllFornecedor
+Content-Type: application/json
+
+{
+  "fornecedor_id": 9
+}
+
+### DELETAR ESTOQUE POR ID
+
+DELETE http://localhost:3048/api/estoque/delete
+Content-Type: application/json
+
+{
+  "id": 1
+}

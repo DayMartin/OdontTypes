@@ -1,0 +1,33 @@
+
+### CATEGORIA
+
+### BUSCAR TODOS AS CATEGORIA
+GET http://localhost:3048/api/categoria/all
+
+### CADASTRAR NOVO OS
+
+POST http://localhost:3048/api/categoria/create
+Content-Type: application/json
+
+{
+  "nome": "Materias"
+}
+
+### BUSCAR CATEGORIA POR ID
+
+POST http://localhost:3048/api/categoria/get
+Content-Type: application/json
+
+{
+  "id": 1
+}
+
+
+### DELETAR CATEGORIA POR ID
+
+DELETE http://localhost:3048/api/categoria/delete
+Content-Type: application/json
+
+{
+  "id": 1
+}

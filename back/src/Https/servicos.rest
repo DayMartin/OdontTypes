@@ -1,0 +1,36 @@
+################ SERVICOS
+
+### BUSCAR TODOS OS SERVICOS
+
+GET http://localhost:3048/api/servicos/all
+
+### CADASTRAR NOVO SERVICO
+
+POST http://localhost:3048/api/servicos/create
+Content-Type: application/json
+
+{
+  "nome": "Extração de dente",
+  "descricao": "Extração de dente",
+  "preco_avulso": 50,
+  "preco_convenio": 50,
+  "status": "ativo"
+}
+
+### BUSCAR UM SERVIÇO POR ID
+
+POST http://localhost:3048/api/servicos/get
+Content-Type: application/json
+
+{
+  "id": 2
+}
+
+### DELETAR UM SERVIÇO POR ID
+
+DELETE http://localhost:3048/api/servicos/delete
+Content-Type: application/json
+
+{
+  "id": 5
+}

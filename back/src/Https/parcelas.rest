@@ -1,0 +1,59 @@
+## PARCELAS
+
+### BUSCAR TODAS AS PARCELAS
+GET http://localhost:3048/api/parcelas/all
+
+### BUSCAR PARCELA POR ID
+
+POST http://localhost:3048/api/parcelas/id
+Content-Type: application/json
+
+{
+  "id": 4
+}
+
+### BUSCAR PARCELA POR ID DA OS
+
+POST http://localhost:3048/api/parcelas/idOs
+Content-Type: application/json
+
+{
+  "os_id": 9
+}
+
+### BUSCAR PARCELA POR DIA DE PAGAMENTO
+
+POST http://localhost:3048/api/parcelas/diapagamento
+Content-Type: application/json
+
+{
+  "diapagamento": "24/10/2024"
+}
+
+
+### BUSCAR PARCELA POR MES DE PAGAMENTO
+
+POST http://localhost:3048/api/parcelas/mespagamento
+Content-Type: application/json
+
+{
+  "mes": "11/2024"
+}
+
+### BUSCAR PARCELA EM ATRASO
+
+POST http://localhost:3048/api/parcelas/status
+Content-Type: application/json
+
+{
+  "status": "Pendente"
+}
+
+### DELETAR PARCELA POR ID
+
+DELETE http://localhost:3048/api/parcelas/delete
+Content-Type: application/json
+
+{
+  "id": 1
+}

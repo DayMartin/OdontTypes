@@ -1,0 +1,63 @@
+################ OS
+
+### BUSCAR TODOS AS OS
+
+GET http://localhost:3048/api/os/all
+
+### CADASTRAR NOVO OS
+
+POST http://localhost:3048/api/os/create
+Content-Type: application/json
+
+{
+  "servico_id": 1,
+  "cliente_id": 2,
+  "funcionario_id": 2,
+  "convenio_id": 2,
+  "QTparcelas": 4,
+  "valorServico": 48,
+  "valorDesconto": 48,
+  "dataServico": "24/08/2024",
+  "horaServico": "08:00",
+  "salaServico": "7",
+  "status":"Aguardando",
+  "parcelas": [
+    {
+      "parcela": 1,
+      "valorParcela": 48,
+      "dataPagamento": "24/09/2024",
+      "status": "Pendente"
+    },
+        {
+      "parcela": 2,
+      "valorParcela": 48,
+      "dataPagamento": "24/10/2024",
+      "status": "Pendente"
+    },
+        {
+      "parcela": 3,
+      "valorParcela": 48,
+      "dataPagamento": "24/11/2024",
+      "status": "Pendente"
+    }
+  ]
+}
+
+
+### BUSCAR UMA OS POR ID
+
+POST http://localhost:3048/api/os/get
+Content-Type: application/json
+
+{
+  "id": 7
+}
+
+### DELETAR UMA OS POR ID
+
+DELETE http://localhost:3048/api/os/delete
+Content-Type: application/json
+
+{
+  "id": 4
+}
