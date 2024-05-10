@@ -21,6 +21,10 @@ import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import HomeIcon from '@mui/icons-material/Home';
+import { Home } from '../../../pages';
+
+
+
 const drawerWidth = 240;
 
 const openedMixin = (theme: Theme): CSSObject => ({
@@ -236,9 +240,8 @@ export default function MenuLateral() {
         {selectedItem === 'Home' && (
           <Box sx={{ bgcolor: 'background.paper', p: 3 }}>
             <Typography variant="h5">Home</Typography>
-            <Typography paragraph>
-              Conteúdo para Home...
-            </Typography>
+
+            <Home/>
           </Box>
         )}
       </Box>

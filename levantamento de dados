@@ -1,0 +1,84 @@
+Tipo de usuários:
+    * Paciente
+    * Médico
+    * Fornecedor
+    * Convênio
+
+Tipo de status:
+    * Ativo
+    * Inativo
+
+Tipo de status parcelas:
+    * Pago
+    * Atrasado
+    * Pendente
+
+
+Usuários: 
+
+{
+  tipo
+  cpfcnpj
+  nome 
+  telefone
+  endereco
+  email
+  senha
+  status
+}
+
+
+
+Consulta: 
+
+{
+  servico_id
+  cliente_id
+  funcionario_id
+  convenio_id
+  QTparcelas
+  valorServico
+  valorDesconto
+  dataServico
+  horaServico
+  salaServico
+  status
+}
+
+Categoria: 
+
+{
+  nome
+}
+
+
+Serviço: 
+
+{
+  nome
+  descricao
+  preco_avulso
+  preco_convenio
+  status
+
+}
+
+Estoque: 
+
+{
+  nome 
+  quantidade
+  fornecedor_id
+  categoria_id
+}
+
+Parcelas
+
+{
+   os_id
+   parcela
+   valorParcela
+   dataPagamento
+   status
+},
+
