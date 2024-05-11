@@ -30,7 +30,7 @@ Content-Type: application/json
   "diapagamento": "24/10/2024"
 }
 
-
+/mestotalpagamento
 ### BUSCAR PARCELA POR MES DE PAGAMENTO
 
 POST http://localhost:3048/api/parcelas/mespagamento
@@ -39,6 +39,12 @@ Content-Type: application/json
 {
   "mes": "11/2024"
 }
+
+### BUSCAR TOTAL POR MES DE PAGAMENTO
+
+GET http://localhost:3048/api/parcelas/mestotalpagamento
+Content-Type: application/json
+
 
 ### BUSCAR PARCELA EM ATRASO
 
