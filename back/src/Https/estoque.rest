@@ -4,15 +4,15 @@
 GET http://localhost:3048/api/estoque/all
 
 ### CADASTRAR NOVO ESTOQUE
-
+### AO CADASTRAR UM ESTOQUE PELA PRIMEIRA VEZ, O VALOR DA QUANTIDADE PRECISA SER 0
 POST http://localhost:3048/api/estoque/create
 Content-Type: application/json
 
 {
   "nome": "Espátula",
-  "quantidade": 2,
-  "fornecedor_id": 9,
-  "categoria_id": 2
+  "quantidade": 0,
+  "fornecedor_id": 1,
+  "categoria_id": 1
 }
 
 ### BUSCAR ESTOQUE POR ID

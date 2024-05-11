@@ -105,7 +105,7 @@ const parcelasController = {
 		}
 	},	
 
-    // Função para trazer o valor total recebido por mês
+    // Função para trazer as parcelas filtradas por mês
 	PagamentoMes: async (req: Request, res: Response) => {
 		const { mes } = req.body;
 	
@@ -140,7 +140,49 @@ const parcelasController = {
 			return res.status(500).json({ error: "Erro ao buscar as parcelas" });
 		}
 	},
-
+	
+    // Função para trazer o valor total recebido por mês
+	PagamentoTotalMes: async (req: Request, res: Response) => {
+		const query = "SELECT * FROM parcelas";
+	
+		try {
+			const result = await queryDatabase(query);
+	
+			// Verificar se o resultado está vazio ou não é um array
+			if (!result || !Array.isArray(result) || result.length === 0) {
+				return res.status(404).json({ error: "Parcelas não encontradas para este mês" });
+			}
+	
+			// Calcular a soma dos valores das parcelas para cada mês
+			const monthlySum = result.reduce((acc, row) => {
+				const [rowYear, rowMonth] = row.dataPagamento.split('/');
+				const key = `${rowYear}/${rowMonth}`;
+				const valorParcela = parseFloat(row.valorParcela);
+	
+				if (!acc[key]) {
+					acc[key] = {
+						month: rowMonth,
+						year: rowYear,
+						total: 0
+					};
+				}
+	
+				acc[key].total += valorParcela;
+	
+				return acc;
+			}, {});
+	
+			// Converter o objeto em uma matriz de resultados
+			const monthlySumArray = Object.values(monthlySum);
+	
+			// Se as parcelas foram encontradas, retornar os dados da soma mensal
+			return res.status(200).json(monthlySumArray);
+		} catch (error) {
+			console.error(error);
+			return res.status(500).json({ error: "Erro ao buscar as parcelas" });
+		}
+	},
+	
     // Função para buscar parcela por status
 	PagamentoStatus: async (req:Request, res:Response) => {
 		const { status } = req.body;
