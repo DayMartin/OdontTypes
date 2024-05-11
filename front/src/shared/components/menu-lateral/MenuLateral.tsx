@@ -21,9 +21,8 @@ import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import HomeIcon from '@mui/icons-material/Home';
-import { Home } from '../../../pages';
-
-
+import { Dashboard, Home } from '../../../pages';
+import { BarraInicial } from '../barra-inicial/BarraInicial';
 
 const drawerWidth = 240;
 
@@ -101,13 +100,13 @@ export default function MenuLateral() {
   const [open, setOpen] = React.useState(false);
   const [selectedItem, setSelectedItem] = React.useState('');
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+  // const handleDrawerOpen = () => {
+  //   setOpen(true);
+  // };
 
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+  // const handleDrawerClose = () => {
+  //   setOpen(false);
+  // };
 
   const handleListItemClick = (text: React.SetStateAction<string>) => {
     setSelectedItem(text);
@@ -116,31 +115,7 @@ export default function MenuLateral() {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 15,
-              ...(open && { display: 'none' }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          {/* <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
-          </Typography> */}
-        </Toolbar>
-      </AppBar>
       <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-        </DrawerHeader>
         <Divider />
         <List>
           {['Contas', 'Consultas', 'Financeiro', 'Estoque'].map((text, index) => (
@@ -153,9 +128,10 @@ export default function MenuLateral() {
                   justifyContent: open ? 'initial' : 'center',
                   px: 5.5,
                   marginBottom: 6,
-                  marginTop:2,
-                  fontSize: 'large'
-
+                  marginTop: 8,
+                  fontSize: 30,
+                  width: 70, 
+                  height: 70
                 }}
               >
                 <ListItemIcon
@@ -183,7 +159,7 @@ export default function MenuLateral() {
                   minHeight: 48,
                   justifyContent: open ? 'initial' : 'center',
                   px: 5.5,
-                  fontSize: 'large'
+
 
                 }}
               >
@@ -204,7 +180,6 @@ export default function MenuLateral() {
         
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
         {selectedItem === 'Contas' && (
           <Box sx={{ bgcolor: 'background.paper', p: 3 }}>
             <Typography variant="h5">Contas</Typography>
@@ -238,10 +213,16 @@ export default function MenuLateral() {
           </Box>
         )}
         {selectedItem === 'Home' && (
-          <Box sx={{ bgcolor: 'background.paper', p: 3 }}>
-            <Typography variant="h5">Home</Typography>
-
+          <Box>
+            <Box sx={{ bgcolor: 'background.paper', p: 3 }} className = 'grid'>
+            <BarraInicial/>
+            </Box>
+            <Box sx={{ bgcolor: 'background.paper', p: 3 }} className = 'grid'>
             <Home/>
+            </Box>
+            <Box sx={{ bgcolor: 'background.paper', p: 3 }} className = 'grid'>
+            <Dashboard/>
+            </Box>
           </Box>
         )}
       </Box>

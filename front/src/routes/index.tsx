@@ -17,7 +17,7 @@ export const AppRoutes = () => {
 
       {
         icon: 'assignment',
-        path: "/home",
+        path: "/nada",
         label: 'Work Prod',
       },
 
@@ -40,7 +40,7 @@ export const AppRoutes = () => {
 
   return (
     <Routes>
-      <Route path="/home" element={<Home/>} />
+      <Route path="/home" />
 
       {/* Rota padrão */}
       <Route path="*" element={<Navigate to="/home" />} />
