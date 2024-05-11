@@ -4,6 +4,10 @@
 
 GET http://localhost:3048/api/os/all
 
+### BUSCAR TOTAL DE CONSULTA POR MES
+
+GET http://localhost:3048/api/os/totalmes
+
 ### CADASTRAR NOVO OS
 
 POST http://localhost:3048/api/os/create
@@ -11,13 +15,13 @@ Content-Type: application/json
 
 {
   "servico_id": 1,
-  "cliente_id": 2,
-  "funcionario_id": 2,
-  "convenio_id": 2,
+  "cliente_id": 1,
+  "funcionario_id": 1,
+  "convenio_id": 1,
   "QTparcelas": 4,
   "valorServico": 48,
   "valorDesconto": 48,
-  "dataServico": "24/08/2024",
+  "dataServico": "24/10/2024",
   "horaServico": "08:00",
   "salaServico": "7",
   "status":"Aguardando",

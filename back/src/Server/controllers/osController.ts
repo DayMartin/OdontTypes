@@ -2,6 +2,12 @@ import { Request, Response } from 'express';
 import queryDatabase from '../database/queryPromise'
 // Função para buscar todos os usuários
 
+interface MonthlyCount {
+    month: string;
+    year: string;
+    count: number;
+}
+
 const osController = {
 
 	getOss: async (_:Request, res:Response) => {
@@ -86,9 +92,49 @@ const osController = {
 			console.error(error);
 			return res.status(500).json({ error: "Erro ao deletar a OS" });
 		}
-	} 
+	},
 
 	// Função para buscar quantidade de consultas por mês
+	consultaMes: async (_: Request, res: Response) => {
+		const query = "SELECT * FROM os";
+	
+		try {
+			const rows: any[] = await queryDatabase(query);
+			
+			// Verificar se há OSs cadastradas
+			if (!rows || rows.length === 0) {
+				return res.status(404).json({ error: "Nenhuma OS cadastrada" });
+			}
+			
+			// Calcular a contagem de documentos por mês
+			const monthlyCount: { [key: string]: MonthlyCount } = rows.reduce((acc, row) => {
+				const [ rowYear, rowMonth] = row.dataServico.split('/');
+				const key = `${rowYear}/${rowMonth}`;
+	
+				if (!acc[key]) {
+					acc[key] = {
+						month: rowMonth,
+						year: rowYear,
+						count: 0
+					};
+				}
+	
+				acc[key].count++;
+	
+				return acc;
+			}, {});
+	
+			// Converter o objeto em uma matriz de resultados
+			const monthlyCountArray = Object.values(monthlyCount);
+	
+			// Se houver OSs cadastradas, retornar os dados da contagem mensal
+			return res.status(200).json(monthlyCountArray);
+		} catch (error) {
+			console.error(error);
+			return res.status(500).json({ error: "Erro ao buscar OS's" });
+		}
+	},
+	
 	
     // Função para buscar consultas agendadas hoje
 }
