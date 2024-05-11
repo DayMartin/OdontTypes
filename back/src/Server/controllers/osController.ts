@@ -88,6 +88,9 @@ const osController = {
 		}
 	} 
 
+	// Função para buscar quantidade de consultas por mês
+	
+    // Função para buscar consultas agendadas hoje
 }
 
 export { osController };
