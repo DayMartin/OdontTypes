@@ -5,9 +5,10 @@ import { useEffect } from 'react';
 
 
 import {
-  Home
+  Home, Contas
 } from '../pages';
 import React from 'react';
+import { ListagemUsers } from '../pages/Users/components/ListagemUsers';
 
 export const AppRoutes = () => {
   const { setDrawerOptions } = useDrawerContext();
@@ -41,6 +42,12 @@ export const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/home" />
+      <Route
+        path="/listagemContas"
+        element={
+            <ListagemUsers />
+        }
+      />
 
       {/* Rota padrão */}
       <Route path="*" element={<Navigate to="/home" />} />
