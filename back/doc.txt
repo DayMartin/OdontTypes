@@ -19,4 +19,7 @@ npm install @types/jest -force
 yarn add jest ts-jest @types/jest
 yarn jest --init
 yarn add -D supertest @types/supertest
+npm install cors --force
+npm install @types/cors
+
 
