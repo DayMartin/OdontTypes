@@ -21,7 +21,7 @@ Content-Type: application/json
   "QTparcelas": 4,
   "valorServico": 48,
   "valorDesconto": 48,
-  "dataServico": "24/10/2024",
+  "dataServico": "24/12/2024",
   "horaServico": "08:00",
   "salaServico": "7",
   "status":"Aguardando",
