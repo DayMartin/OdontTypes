@@ -3,7 +3,6 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDrawerContext } from '../shared/contexts';
 import { useEffect } from 'react';
 
-
 import {
   Home, Contas
 } from '../pages';
@@ -12,6 +11,7 @@ import { ListagemUsers } from '../pages/Users/components/ListagemUsers';
 
 export const AppRoutes = () => {
   const { setDrawerOptions } = useDrawerContext();
+
 
   useEffect(() => {
     setDrawerOptions([
@@ -48,7 +48,12 @@ export const AppRoutes = () => {
             <ListagemUsers />
         }
       />
-
+      <Route
+        path="/paciente"
+        element={
+            <ListagemUsers />
+        }
+      />
       {/* Rota padrão */}
       <Route path="*" element={<Navigate to="/home" />} />
     </Routes>

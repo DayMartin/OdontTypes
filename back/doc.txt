@@ -21,5 +21,11 @@ yarn jest --init
 yarn add -D supertest @types/supertest
 npm install cors --force
 npm install @types/cors
+npm i --save-dev @types/cors
+
+npm uninstall eslint @typescript-eslint/eslint-plugin @typescript-eslint/utils typescript-eslint
+npm install eslint@8.57.0 @typescript-eslint/eslint-plugin@7.8.0 @typescript-eslint/utils@7.8.0 @typescript-eslint/type-utils@7.8.0
+npm install --save-dev @types/cors
+
 
 

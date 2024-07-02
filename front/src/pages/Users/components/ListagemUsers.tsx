@@ -1,5 +1,7 @@
-import { Box } from "@mui/material"
 import { UsersService } from "../../../shared/services/api/Users/UsersService"
+import * as React from "react";
+import { BarraUsuarios } from "../../../shared/components";
+import { Box } from "@mui/material";
 
 // eslint-disable-next-line
 export const ListagemUsers: React.VFC = () => {
@@ -12,7 +14,9 @@ export const ListagemUsers: React.VFC = () => {
     }
     return( 
         <Box>
+            <BarraUsuarios/>
             <button onClick={() => consultar()}></button>
         </Box>
+
      )
 }
