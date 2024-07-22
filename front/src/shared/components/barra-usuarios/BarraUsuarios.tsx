@@ -24,7 +24,7 @@ export const BarraUsuarios: React.VFC = () => {
         // <Box>
         //     <button onClick={() => consultar()}></button>
         // </Box>
-        <Grid container spacing={4}>
+        <Grid container spacing={4} marginLeft={'6%'}>
         <Grid item xs={12} sm={2}>
         <Card
         sx={{
@@ -32,9 +32,9 @@ export const BarraUsuarios: React.VFC = () => {
           backgroundColor: "#F0F8FF",
           boxShadow: "none",
           borderRadius: 6,
-          cursor: "pointer" // Adicionado para indicar que o card é clicável
+          cursor: "pointer", // Adicionado para indicar que o card é clicável
         }}
-        onClick={() => navigate(`/listagemContas`)} // onClick adicionado ao Card
+        onClick={() => navigate(`/paciente`)} // onClick adicionado ao Card
       >
         <CardContent
           sx={{

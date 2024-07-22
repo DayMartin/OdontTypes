@@ -8,6 +8,7 @@ import {
 } from '../pages';
 import React from 'react';
 import { ListagemUsers } from '../pages/Users/components/ListagemUsers';
+import { Paciente } from '../pages/Users/components/Paciente';
 
 export const AppRoutes = () => {
   const { setDrawerOptions } = useDrawerContext();
@@ -51,7 +52,7 @@ export const AppRoutes = () => {
       <Route
         path="/paciente"
         element={
-            <ListagemUsers />
+            <Paciente />
         }
       />
       {/* Rota padrão */}

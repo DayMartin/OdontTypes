@@ -24,6 +24,21 @@ export interface IDetalheUsers {
   status: string;
 }
 
+export interface IApiResponse {
+  consulta: IListagemUsers[]; 
+  pagination: {
+    totalOrdem: number;
+    pageCount: number;
+    next?: { page: number };
+    prev?: { page: number };
+  };
+  setor?: string;
+  status?: string | string[];
+  sala?: string | string[];
+  equipe?: string;
+  solicitante?: string;
+}
+
 // type TUsersComTotalCount = {
 //   data: IListagemUsers[];
 //   totalCount: number;

@@ -1,4 +1,4 @@
-import * as React from 'react';
+
 import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -21,6 +21,8 @@ import { Dashboard, Home } from '../../../pages';
 import { BarraInicial } from '../barra-inicial/BarraInicial';
 import { Contas } from '../../../pages';
 import { ListagemUsers } from '../../../pages/Users/components/ListagemUsers';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import React, { useEffect } from "react";
 
 const drawerWidth = 240;
 
@@ -94,9 +96,17 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function MenuLateral() {
+  const navigate = useNavigate();
+
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [selectedItem, setSelectedItem] = React.useState('');
+
+  useEffect(() => {
+    if (selectedItem === 'Contas') {
+      navigate('/paciente');
+    }
+  }, [selectedItem, navigate]);
 
   // const handleDrawerOpen = () => {
   //   setOpen(true);
@@ -178,20 +188,14 @@ export default function MenuLateral() {
         
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        {selectedItem === 'Contas' && (
-          <Box sx={{ bgcolor: 'background.paper', p: 3 }}>
-            <Typography variant="h5">Contas</Typography>
-            <ListagemUsers/>
-          </Box>
-        )}
-        {selectedItem === 'Consultas' && (
-          <Box sx={{ bgcolor: 'background.paper', p: 3 }}>
-            <Typography variant="h5">Consultas</Typography>
-            <Typography paragraph>
-              Conteúdo para Consultas...
-            </Typography>
-          </Box>
-        )}
+          {selectedItem === 'Consultas' && (
+            <Box sx={{ bgcolor: 'background.paper', p: 3 }}>
+              <Typography variant="h5">Consultas</Typography>
+              <Typography paragraph>
+                Conteúdo para Consultas...
+              </Typography>
+            </Box>
+          )}
         {selectedItem === 'Financeiro' && (
           <Box sx={{ bgcolor: 'background.paper', p: 3 }}>
             <Typography variant="h5">Financeiro</Typography>
